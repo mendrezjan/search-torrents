@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    form(class="form" action="/anime", method="POST")
+        input(type="text" name="torrent" placeholder="Anime Series" required)
+        button(class="btn" type='submit') Submit

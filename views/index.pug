@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    form(class="form" action="/", method="POST")
+        input(type="text" name="torrent" placeholder="Movie/TV Show" required)
+        button(class="btn" type='submit') Search

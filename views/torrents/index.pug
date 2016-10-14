@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    form(class="form" action="/", method="POST")
+        input(type="text" name="torrent" placeholder="Movie/TV Show" required)
+        button(class="btn" type='submit') Search
+    h1 tpb
+    #data
+        each torrent in data
+            include torrent
+        else
+            p Torrent not found
+    h1 yts
+    #data2
+        each torrent in data2
+            include torrent
+        else
+            p Torrent not found
