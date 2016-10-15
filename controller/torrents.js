@@ -1,7 +1,6 @@
 var express = require('express');
 var tpb = require('../lib/thepiratebay');
 var yts = require('../lib/yts');
-var rarbg = require('../lib/rarbg');
 
 var torrents = express.Router();
 
