@@ -4,6 +4,8 @@ block content
     form(class="form" action="/", method="POST")
         input(type="text" name="torrent" placeholder="Movie/TV Show" required)
         button(class="btn" type='submit') Search
+    .poster
+        img(src= imgsrc)
     h1 tpb
     #data
         each torrent in data

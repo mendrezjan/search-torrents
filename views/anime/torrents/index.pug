@@ -4,6 +4,8 @@ block content
     form(class="form" action="/anime", method="POST")
         input(type="text" name="torrent" placeholder="Anime Series" required)
         button(class="btn" type='submit') Submit
+    .poster
+        img(src =imgsrc)
     h1 nyaa
     #data
         each torrent in data

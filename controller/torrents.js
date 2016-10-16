@@ -1,7 +1,7 @@
 var express = require('express');
 var tpb = require('../lib/thepiratebay');
 var yts = require('../lib/yts');
-var rarbg = require('../lib/rarbg');
+var imdb = require('imdb-api');
 
 var torrents = express.Router();
 
@@ -9,6 +9,7 @@ torrents.post('/', function(req, res){
     var query = req.body.torrent;
     var TPB_TORRENT_DATA = [];
     var YTS_TORRENT_DATA = [];
+    var IMDB_MOVIE_IMG;
 
     tpb.search(query).then(function(data){
         data.map(function(torrent){
@@ -32,11 +33,17 @@ torrents.post('/', function(req, res){
         });
     });
 
+    imdb.get(query).then(function(data){
+        var img = data.poster;
+        IMDB_MOVIE_IMG = img;
+    });
+
     setTimeout(function(){
 
         res.render('torrents', {
+            imgsrc: IMDB_MOVIE_IMG,
             data: TPB_TORRENT_DATA,
-            data2: YTS_TORRENT_DATA,
+            data2: YTS_TORRENT_DATA
         });
     }, 5000);
 });
